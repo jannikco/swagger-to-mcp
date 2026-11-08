@@ -1,0 +1,14 @@
+{
+  "name": "@pipmcp/import-examples",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "OpenAPI, Swagger, Postman and GraphQL import examples for the PipMCP management API",
+  "exports": "./index.mjs",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "openapi": "node run.mjs openapi",
+    "swagger": "node run.mjs swagger",
+    "postman": "node run.mjs postman",
+    "graphql": "node run.mjs graphql"
+  }
+}

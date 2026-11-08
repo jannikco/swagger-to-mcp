@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "swagger-to-mcp",
+  "version": "1.0.0",
+  "product": "pipmcp",
+  "artifactType": "Authenticated import client",
+  "credential": "PIPMCP_API_KEY",
+  "connectorId": null,
+  "executionAuthority": "https://pipmcp.com/api/v1",
+  "inventory": "authenticated-dynamic",
+  "verification": {
+    "transport": "Tested",
+    "providerExecution": "Documented"
+  },
+  "skills": [
+    "pipmcp-swagger-to-mcp"
+  ],
+  "offlineMode": "plan-and-fixtures-only",
+  "historicalVersions": "Older MIT local runtimes remain in Git history"
+}

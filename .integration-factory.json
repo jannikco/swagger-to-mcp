@@ -1,46 +1,49 @@
 {
   "schemaVersion": 1,
-  "status": "ready",
-  "verification": "mock-only",
-  "releaseEligible": true,
-  "maintainer": "jannikco",
-  "license": "MIT",
-  "sourceRevision": "2ae0b1339f6c8b591ca8c5998dfea4328f79ac4112ecd359be2bac3ca204018a",
-  "evidence": [
-    "Local compiler output and actual MCP tools/call contract tests"
-  ],
-  "provenance": [
-    "https://github.com/jannikco/swagger-to-mcp/blob/main/lib/compiler/index.mjs"
-  ],
   "id": "swagger-to-mcp",
   "kind": "import-example",
   "product": "pipmcp",
   "title": "Swagger to MCP import starter",
-  "description": "Compile swagger definitions into executable local MCP tools without a PipMCP account.",
+  "description": "Import swagger APIs into private PipMCP with one API key, reviewed uploads and agent instructions.",
+  "status": "ready",
+  "verification": "mock-only",
+  "releaseEligible": true,
   "operationIds": [],
-  "importFormat": "swagger",
+  "maintainer": "jannikco",
+  "license": "MIT",
   "attributionSlug": "github-swagger-to-mcp",
+  "sourceRevision": "4e597295eabe21763e540f72fed2915e126618fa51f2936123b7281d63b45ce3",
   "qualityVersion": 2,
   "artifactType": "compiler",
+  "evidence": [
+    "Gateway HTTP transport fixtures",
+    "Generated stdio wrapper discovery/call fixtures"
+  ],
+  "provenance": [
+    "https://github.com/jannikco/swagger-to-mcp/blob/main/lib/compiler/index.mjs"
+  ],
   "utility": {
-    "problem": "Compile swagger definitions into executable local MCP tools without a PipMCP account.",
-    "output": "Executable local MCP connector definition"
+    "problem": "Import a reviewed swagger API definition into private PipMCP",
+    "output": "A private integration import receipt; publication and connection remain explicit"
   },
+  "executionAuthority": "pipmcp-gateway",
+  "version": "1.0.0",
+  "agentReady": true,
   "capabilityEvidence": {
     "local": {
       "level": "Tested",
       "operations": [
         {
-          "name": "swagger-to-mcp",
+          "name": "gateway_transport",
           "level": "Tested",
+          "method": "contract-fixture",
           "evidenceRefs": [
-            "Standalone functional API/compiler contract tests"
-          ],
-          "method": "contract-fixture"
+            "Generated gateway/stdio fixtures"
+          ]
         }
       ],
       "evidenceRefs": [
-        "Standalone functional API/compiler contract tests"
+        "Generated gateway/stdio fixtures"
       ],
       "mode": "local"
     },
@@ -51,50 +54,7 @@
       "mode": "managed"
     }
   },
-  "connector": {
-    "id": "invoice-fixture-api",
-    "name": "Invoice fixture API",
-    "version": "1.0.0",
-    "baseUrl": "https://example.com/billing",
-    "auth": {
-      "type": "none"
-    },
-    "tools": [
-      {
-        "name": "getInvoice",
-        "description": "Get one invoice",
-        "method": "GET",
-        "path": "/invoices/{invoiceId}",
-        "readOnly": true,
-        "inputSchema": {
-          "type": "object",
-          "properties": {
-            "invoiceId": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "invoiceId"
-          ],
-          "additionalProperties": false
-        },
-        "bindings": {
-          "path": [
-            "invoiceId"
-          ],
-          "query": {},
-          "body": {}
-        },
-        "sampleArguments": {
-          "invoiceId": "example-id"
-        }
-      }
-    ],
-    "workflow": "Call the selected operations from your own API definition using your own credentials.",
-    "provenance": [
-      "User-supplied API definition"
-    ]
-  },
+  "importFormat": "swagger",
   "factory": "leadadapter-pipmcp",
-  "generatorVersion": 2
+  "generatorVersion": 3
 }

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "version": "1.0.0",
+  "product": "pipmcp",
+  "credential": "PIPMCP_API_KEY",
+  "skills": [
+    {
+      "name": "pipmcp-swagger-to-mcp",
+      "description": "Import a reviewed swagger API definition into private PipMCP and connect its tools to AI agents."
+    }
+  ],
+  "files": {
+    "skills/pipmcp-swagger-to-mcp/SKILL.md": "5efb54ba71a8de6fd3a0af19937c06d3f3eb011f01588deaa1633a912a09f03e"
+  }
+}

@@ -1,0 +1,10 @@
+"""Fixture catalog schema; configure the real GraphQL endpoint before using its tools."""
+type Query {
+  product(id: ID!): Product
+  products(limit: Int = 10): [Product!]!
+}
+type Product {
+  id: ID!
+  title: String!
+  priceMinor: Int!
+}
