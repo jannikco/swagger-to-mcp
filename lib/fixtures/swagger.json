@@ -1,0 +1,9 @@
+{
+  "swagger": "2.0",
+  "info": {"title": "Invoice fixture API", "version": "1.0.0"},
+  "host": "example.com",
+  "basePath": "/billing",
+  "schemes": ["https"],
+  "produces": ["application/json"],
+  "paths": {"/invoices/{invoiceId}": {"get": {"operationId": "getInvoice", "summary": "Get one invoice", "parameters": [{"in": "path", "name": "invoiceId", "required": true, "type": "string"}], "responses": {"200": {"description": "Invoice", "schema": {"type": "object", "properties": {"id": {"type": "string"}, "amount_minor": {"type": "integer"}}}}}}}}
+}

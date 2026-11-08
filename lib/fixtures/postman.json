@@ -1,0 +1,4 @@
+{
+  "info": {"name": "Support fixture collection", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "item": [{"name": "List support tickets", "request": {"method": "GET", "header": [{"key": "Accept", "value": "application/json"}], "url": {"raw": "https://example.com/support/tickets?status=open", "protocol": "https", "host": ["example", "com"], "path": ["support", "tickets"], "query": [{"key": "status", "value": "open"}]}}}]
+}

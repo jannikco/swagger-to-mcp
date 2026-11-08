@@ -1,0 +1,15 @@
+{
+  "name": "swagger-to-mcp",
+  "version": "0.1.0",
+  "description": "Preview and explicitly submit a swagger API import to the PipMCP managed control plane. Includes a standalone fixture and exact management request.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "start": "node example.mjs"
+  }
+}
