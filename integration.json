@@ -5,20 +5,94 @@
   "releaseEligible": true,
   "maintainer": "jannikco",
   "license": "MIT",
-  "sourceRevision": "57ce0fbf3c5a257a7eaa4b10844aa7be5fda4f4b447ac933d5aa3f9c0223a0a3",
+  "sourceRevision": "2ae0b1339f6c8b591ca8c5998dfea4328f79ac4112ecd359be2bac3ca204018a",
   "evidence": [
-    "Pinned public PipMCP management OpenAPI",
-    "Offline import contract tests"
+    "Local compiler output and actual MCP tools/call contract tests"
   ],
   "provenance": [
-    "https://pipmcp.com/api/v1/openapi.json"
+    "https://github.com/jannikco/swagger-to-mcp/blob/main/lib/compiler/index.mjs"
   ],
   "id": "swagger-to-mcp",
   "kind": "import-example",
   "product": "pipmcp",
   "title": "Swagger to MCP import starter",
-  "description": "Preview and explicitly submit a swagger API import to the PipMCP managed control plane. Includes a standalone fixture and exact management request.",
+  "description": "Compile swagger definitions into executable local MCP tools without a PipMCP account.",
   "operationIds": [],
   "importFormat": "swagger",
-  "attributionSlug": "github-swagger-to-mcp"
+  "attributionSlug": "github-swagger-to-mcp",
+  "qualityVersion": 2,
+  "artifactType": "compiler",
+  "utility": {
+    "problem": "Compile swagger definitions into executable local MCP tools without a PipMCP account.",
+    "output": "Executable local MCP connector definition"
+  },
+  "capabilityEvidence": {
+    "local": {
+      "level": "Tested",
+      "operations": [
+        {
+          "name": "swagger-to-mcp",
+          "level": "Tested",
+          "evidenceRefs": [
+            "Standalone functional API/compiler contract tests"
+          ],
+          "method": "contract-fixture"
+        }
+      ],
+      "evidenceRefs": [
+        "Standalone functional API/compiler contract tests"
+      ],
+      "mode": "local"
+    },
+    "managed": {
+      "level": "Documented",
+      "operations": [],
+      "evidenceRefs": [],
+      "mode": "managed"
+    }
+  },
+  "connector": {
+    "id": "invoice-fixture-api",
+    "name": "Invoice fixture API",
+    "version": "1.0.0",
+    "baseUrl": "https://example.com/billing",
+    "auth": {
+      "type": "none"
+    },
+    "tools": [
+      {
+        "name": "getInvoice",
+        "description": "Get one invoice",
+        "method": "GET",
+        "path": "/invoices/{invoiceId}",
+        "readOnly": true,
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "invoiceId": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "invoiceId"
+          ],
+          "additionalProperties": false
+        },
+        "bindings": {
+          "path": [
+            "invoiceId"
+          ],
+          "query": {},
+          "body": {}
+        },
+        "sampleArguments": {
+          "invoiceId": "example-id"
+        }
+      }
+    ],
+    "workflow": "Call the selected operations from your own API definition using your own credentials.",
+    "provenance": [
+      "User-supplied API definition"
+    ]
+  }
 }

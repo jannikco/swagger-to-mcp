@@ -1,15 +1,23 @@
 {
   "name": "swagger-to-mcp",
-  "version": "0.1.0",
-  "description": "Preview and explicitly submit a swagger API import to the PipMCP managed control plane. Includes a standalone fixture and exact management request.",
+  "version": "0.2.0",
+  "description": "Compile swagger definitions into executable local MCP tools without a PipMCP account.",
   "type": "module",
-  "private": false,
   "license": "MIT",
   "engines": {
     "node": ">=22"
   },
+  "bin": {
+    "swagger-to-mcp": "server.mjs"
+  },
   "scripts": {
-    "test": "node --test",
-    "start": "node example.mjs"
+    "start": "node compile.mjs",
+    "server": "node server.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.4.0",
+    "graphql": "^16.11.0",
+    "yaml": "^2.8.0"
   }
 }

@@ -1,33 +1,32 @@
 # Swagger to MCP import starter
 
-Preview and explicitly submit a swagger API import to the PipMCP managed control plane. Includes a standalone fixture and exact management request.
-
-Maintainer: jannikco · License: MIT · Verification: **mock-only**
+Compile your own swagger definition into directly callable local MCP tools. No PipMCP account is required.
 
 ## Quick start
 
-Requires Node.js 22 or later.
+Node.js22+. Clone this repository and run:
 
 ```sh
-npm ci
+npm ci --ignore-scripts
 npm test
 npm start
 ```
 
-The default example runs locally without credentials and makes no external changes. Verification status describes recorded evidence; local configuration tests do not establish that provider authentication or execution works.
+The default example compiles a bundled fixture offline. It does not authenticate or call a provider.
 
-## Import execution
+## Compile your API
 
-The default example produces an offline import request plan. See format-specific instructions below.
+```sh
+npm start -- /path/to/your-api.json --base-url https://your-api.example.com --output my-connector.json
+node server.mjs --manifest my-connector.json
+```
 
-## Managed service
+Use the server command in an MCP client with stdio transport. Authentication is derived from the definition; put provider API keys or access tokens in the environment fields named in the generated auth object. Writes require CONNECTOR_ALLOW_WRITES=true and explicit per-call _approval. External schema references must be bundled first; unsupported auth or body formats produce actionable errors. Never place provider secrets in the API definition.
 
-[Continue with PipMCP](https://pipmcp.com/register?utm_source=github&utm_campaign=github-swagger-to-mcp). This repository is maintained by the integration team and does not imply endorsement by LinkedIn or other providers.
+The swagger fixture demonstrates getInvoice. The test suite executes compiled operations through the real MCP runtime with HTTP fixtures and stdio tools/call. Local status: **Tested (fixtures)**; provider authentication and live execution are not claimed.
 
-## Provenance and support
+## Optional managed production
 
-Source revision: 57ce0fbf3c5a257a7eaa4b10844aa7be5fda4f4b447ac933d5aa3f9c0223a0a3. The complete manifest is in integration.json; SHA256SUMS covers the reviewed artifact. Open a repository issue without credentials or personal data. See SECURITY.md for sensitive reports. No telemetry is sent by this code; signup links include explicit campaign parameters.
+[Use PipMCP](https://pipmcp.com/github/start?integration=swagger-to-mcp&utm_source=github&utm_campaign=github-swagger-to-mcp&utm_content=readme) for hosted import, credentials, policies and team access. The local tool does not send your definitions or secrets to PipMCP. [Directory](https://jannikco.github.io/pipmcp-connectors/guides/swagger-to-mcp/).
 
-## API import request builder
-
-The default example parses a bundled format-specific fixture and prints the exact private integration import request without sending it. Inspect lib/README.md and the pinned management API contract. To import into your own PipMCP account, set PIPMCP_API_KEY and pass --execute --confirm-import. This creates a private integration only; it does not publish or execute provider tools. Provider setup, credentials and subsequent execution remain separate steps.
+MIT. Maintainer:jannikco. See integration.json for source/evidence and LICENSE for code license.
