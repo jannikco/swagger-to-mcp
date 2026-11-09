@@ -1,3 +1,72 @@
+# Give an older documented business system a reviewed setup path
+
+**Your own software + your AI assistant · powered by PipMCP**
+
+You already have an older Swagger description for a system your organization is allowed to use, and want help turning it into a controlled connection.
+
+**Made for:** Business owners bringing an existing internal tool to an assistant
+
+For real use, you will need PipMCP and an API you are allowed to connect.
+
+## Ask your AI to set this up
+
+Paste this into a coding assistant that can open project files and run commands, such as Codex, Claude Code or Grok Build. You do not need to understand the code first.
+
+```text
+Help me use this project: https://github.com/jannikco/swagger-to-mcp
+
+I'm not a programmer. My goal is: Give an older documented business system a reviewed
+setup path.
+
+Read the project instructions and set it up in a new folder without overwriting my work.
+Guide me through PipMCP and its private key setup; never ask me to paste secrets into this
+chat. Show the documented preview first. Explain what would be uploaded before asking me
+to confirm an import. Explain the result in plain English. Ask before changing records,
+sending messages or publishing anything.
+```
+
+## Three useful things to ask for
+
+```text
+Help me understand an older Swagger description that I am authorized to use. Explain which
+business actions it describes.
+```
+
+```text
+Prepare an import plan in PipMCP and show the selected actions, account requirements and
+changes for my review. Do not import or publish automatically.
+```
+
+```text
+After I approve the import, help me configure the connection and verify one non-changing
+action. Do not treat an import receipt as proof that the service works.
+```
+
+## Your path to a real result
+
+```mermaid
+flowchart LR
+  A["Choose your API"] --> B["Preview in PipMCP"] --> C["Review and publish<br/>tools"] --> D["Connect and try a read"]
+```
+
+1. [Open PipMCP](https://pipmcp.com/github/start?integration=swagger-to-mcp&utm_source=github&utm_campaign=github-swagger-to-mcp&utm_content=people-first-readme) and choose the API definition you control.
+2. Preview the import, then review and publish the selected tools in your private workspace.
+3. Configure its authorized connection and a PipMCP API key, then ask your AI to discover an appropriate read.
+
+**What to expect:** You get a reviewed import path into private PipMCP. A PipMCP key is required for real imports. Importing, publishing the chosen actions and connecting the account are separate steps; access must be verified afterward.
+
+Add your PipMCP key privately in your project settings. Keep keys out of chat and public repositories.
+
+## Keep going
+
+- [Find another useful integration](https://github.com/jannikco/pipmcp-connectors)
+- [Connect an API you control](https://github.com/jannikco/openapi-to-mcp)
+- [Try the GitHub project](https://github.com/jannikco/github-mcp)
+
+<details>
+<summary>Technical reference: installation commands, exact capabilities and troubleshooting</summary>
+
+<!-- people-first:technical:start -->
 # Swagger to MCP import starter
 
 **Turn your swagger API definition into hosted MCP tools. Preview locally, then explicitly import it with your PipMCP API key.**
@@ -55,3 +124,7 @@ This release uses the authenticated PipMCP gateway for real discovery/execution.
 ## Evidence and support
 
 Transport, package and agent fixtures are tested. Authentication/provider access must be checked in your own configured workspace; synthetic fixtures do not establish live provider execution. Do not include credentials or customer records in public issues. MIT covers this public client.
+
+<!-- people-first:technical:end -->
+
+</details>
